@@ -1,5 +1,3 @@
-# Something is missing here
-
 class Garden
   attr_accessor :name
 
@@ -11,6 +9,21 @@ class Garden
     Plant.all.select do |plant|
       plant.garden == self
     end
+  end
+end
+
+class Plant
+  attr_accessor :garden, :name
+
+  @@all = []
+
+  def initialize(name:)
+    @name = name
+    @@all << self
+  end
+
+  def self.all
+    @@all
   end
 end
 
